@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+    <div class="center start" style="display: none">
+        <form action="" method="" class="form">
+            <img src="assets/images/brain.png" alt="">
+            <h2>Jogo da Memória</h2>
+            <div class="group">
+                <input required="" type="text" name="player" class="input">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Nome</label>
+            </div>
+            <div class="button">
+                <button class="btn"><span></span><p data-start="good luck!" data-text="Iniciar!" data-title="Novo Jogo"></p></button>
+             </div>  
+        </form> 
+    </div>
+    <section class="center playing" style="display: block">
+        <aside class="info-play">
+            <div class="info-player">Player: <span>Lucas</span></div>
+            <div class="info-timer">Tempo: <span>99</span></div>
+        </aside>
+        <div class="cards">
+            
+        </div>
+    </section>
+
+<script type="text/javascript" src="assets/js/cards.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+
+</body>
+</html>

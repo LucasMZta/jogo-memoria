@@ -1,0 +1,286 @@
+@import '_reset';
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .center {
+        min-width: 18rem;
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 7rem;
+            margin: 2rem 0;
+        }
+        h2 {
+            font-weight: 500;
+            font-size: 1.7rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            padding: .6rem 4rem;
+            width: 100%;
+            margin-top: 2rem;
+        }
+    }
+}
+
+.group {
+    position: relative;
+    width: 100%;
+    .input {
+        padding: 8px 12px;
+        font-size: 1rem;
+        display: block;
+        border: none;
+        border-bottom: 1px solid #515151;
+        background: transparent;
+        width: 100%;
+    }
+    .input:focus {
+        outline: none;
+        border-bottom: 1px solid transparent;
+    }
+    label {
+        color: #999;
+        font-size: 18px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+    .input:focus~label,
+    .input:valid~label {
+        top: -20px;
+        font-size: 14px;
+        color: #5264AE;
+    }
+    .bar {
+        position: relative;
+        display: block;
+    }
+    .bar:before,
+    .bar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: #5264AE;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+    .bar:before {
+        left: 50%;
+    }
+    .bar:after {
+        right: 50%;
+    }
+    .input:focus~.bar:before,
+    .input:focus~.bar:after {
+        width: 50%;
+    }
+    .highlight {
+        position: absolute;
+        height: 60%;
+        top: 25%;
+        left: 0;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+    .input:focus~.highlight {
+        -webkit-animation: inputHighlighter 0.3s ease;
+        animation: inputHighlighter 0.3s ease;
+    }
+    @-webkit-keyframes inputHighlighter {
+        from {
+            background: #5264AE;
+        }
+        to {
+            width: 0;
+            background: transparent;
+        }
+    }
+    @keyframes inputHighlighter {
+        from {
+            background: #5264AE;
+        }
+
+        to {
+            width: 0;
+            background: transparent;
+        }
+    }
+}
+
+
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    top: 20px;
+    left: 20px;
+}
+    button {
+        width: 150px;
+        height: 50px;
+        background-color: #333;
+        margin: 20px;
+        color: #FFF;
+        position: relative;
+        overflow: hidden;
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+    }
+     button:before,
+     button:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background-color: #0a9766;
+        transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+    }
+     button:before {
+        right: 0;
+        top: 0;
+        transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+    }
+     button:after {
+        left: 0;
+        bottom: 0;
+    }
+     button span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+    }
+     button span:before,
+     button span:after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 0;
+        background-color: #0a9766;
+        transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+    }
+     button span:before {
+        right: 0;
+        top: 0;
+        transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+    }
+     button span:after {
+        left: 0;
+        bottom: 0;
+    }
+     button p {
+        padding: 0;
+        margin: 0;
+        transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+     button p:before,
+     button p:after {
+        position: absolute;
+        width: 100%;
+        transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+        z-index: 1;
+        left: 0;
+    }
+     button p:before {
+        content: attr(data-title);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+     button p:after {
+        content: attr(data-text);
+        top: 150%;
+        color: #0a9766;
+    }
+     button:hover:before,
+     button:hover:after {
+        width: 100%;
+    }
+     button:hover span {
+        z-index: 1;
+    }
+     button:hover span:before,
+     button:hover span:after {
+        height: 100%;
+    }
+     button:hover p:before {
+        top: -50%;
+        transform: rotate(5deg);
+    }
+
+     button:hover p:after {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+     button.start {
+        background-color: #0a9766;
+        box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+    }
+     button.start p:before {
+        top: -50%;
+        transform: rotate(5deg);
+    }
+     button.start p:after {
+        color: white;
+        transition: all 0s ease;
+        content: attr(data-start);
+        top: 50%;
+        transform: translateY(-50%);
+        animation: start 0.3s ease;
+        animation-fill-mode: forwards;
+    }
+    @keyframes start {
+        from {
+            top: -50%;
+        }
+    }
+     button.start:hover:before,
+     button.start:hover:after {
+        display: none;
+    }
+     button.start:hover span {
+        display: none;
+    }
+     button:active {
+        outline: none;
+        border: none;
+    }
+     button:focus {
+        outline: 0;
+    }
+
+
+    @import '_game';
