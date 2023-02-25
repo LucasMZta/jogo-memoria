@@ -28,7 +28,7 @@ h1 {
 }
 .cards {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 1rem;
     .card {
         width: 9rem;
@@ -38,16 +38,18 @@ h1 {
         transform-style: preserve-3d;
         .card-front {
             @extend %card-default;
-            // background-image: url(../images/goku.webp);
             transform: rotateY(180deg);
         }
         .card-back {
             @extend %card-default;
             background-image: url(../images/dbz.jpg);
             backface-visibility: hidden;
-        } 
+        }
     }
     .rotate-card {
         transform: rotateY(180deg);
+    }
+    .disabled {
+        opacity: .5;
     }
 }
