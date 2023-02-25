@@ -1,5 +1,6 @@
 let opt = [];
 let moves = 0;
+let win = 0;
 let player = '';
 
 document.querySelector('.btn').addEventListener('click', startGame);
@@ -59,19 +60,21 @@ function generateCards() {
     });
 };
 function  startCron() {
-    let hour = 0;
+
     let minute = 0;
     let seconds = 0;
     let time = document.querySelector('.info-timer span');
 
     setInterval(() => {
-        if(seconds === 59) {
-            minute ++;
-            seconds = 0;
-        } else {
-            seconds ++;
+        if(win  !== cards.length) {
+            if(seconds === 59) {
+                minute ++;
+                seconds = 0;
+            } else {
+                seconds ++;
+            }
+            time.innerHTML = formatTime(minute, seconds);
         }
-        time.innerHTML = formatTime(minute, seconds);
     }, 1000);
 }
 function formatTime(min, sec) {
@@ -96,6 +99,10 @@ function cardsRight(option) {
         };
     });
     addMoves();
+    win ++;
+    if(win === cards.length) {
+        alert(`Parabéns ${player}, você deu ${moves} movimentos!`);
+    }
 };
 function cardsWrong() {
     document.querySelectorAll('.card.rotate-card:not(.done)').forEach(card =>{
@@ -106,6 +113,5 @@ function cardsWrong() {
 };
 function addMoves() {
     moves ++;
-    console.log(moves);
     document.querySelector('.info-moves span').innerHTML = moves;
 }

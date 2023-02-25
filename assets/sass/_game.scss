@@ -14,22 +14,24 @@ h1 {
     display: none;
     align-self: flex-start;
     .info-play {
-        height: 4rem;
+        min-height: 4rem;
         margin: 1rem 0 2rem 0;
         background-color: rgba(160,160,160,.4);
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
         font-size: 1.4rem;
-    }
-    .info-timer {
-
+        div {
+            padding: 0 2rem;
+        }
     }
 }
 .cards {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1rem;
+    justify-items: center;
     .card {
         width: 9rem;
         height: 12rem;
@@ -51,5 +53,40 @@ h1 {
     }
     .disabled {
         opacity: .5;
+    }
+}
+
+@media(max-width: 1144px) {
+    .cards {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+@media(max-width: 1030px) {
+    .cards {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+@media(max-width: 850px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media(max-width: 690px) {
+    html {
+        font-size: 15px;
+    }
+}
+@media(max-width: 650px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+@media(max-width: 550px) {
+    html {
+        font-size: 14px;
+    }
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
