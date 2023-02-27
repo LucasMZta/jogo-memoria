@@ -4,7 +4,7 @@ let win = 0;
 let player = '';
 
 document.querySelector('.btn').addEventListener('click', startGame);
-
+generateCards();
 function startGame(e) {
     e.preventDefault();
     player = document.querySelector('.input').value;
