@@ -48,7 +48,7 @@ h1 {
         .card-front {
             @extend %card-default;
             transform: rotateY(180deg);
-        }
+        } 
 
         .card-back {
             @extend %card-default;
@@ -59,6 +59,7 @@ h1 {
 
     .rotate-card {
         transform: rotateY(180deg);
+        pointer-events: none;
     }
 
     .disabled {

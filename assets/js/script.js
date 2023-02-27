@@ -16,18 +16,19 @@ function startGame(e) {
 
 function flip(e) {
     let card = e.currentTarget; 
-
     if(opt.length >= 2) {
         console.log('Nao pode fazer nada');
     } else {
-        opt.push(card.getAttribute('data-card'));
-        card.classList.add('rotate-card');
-        if(opt[0] == opt[1]) {
-            cardsRight(opt[0]);
-        } else {
-            if(opt.length == 2) {
-                setTimeout(cardsWrong, 500);
-            }  
+        if(card.classList.contains('rotate-card') === false) {
+            opt.push(card.getAttribute('data-card'));
+            card.classList.add('rotate-card');
+            if(opt[0] == opt[1]) {
+                cardsRight(opt[0]);
+            } else {
+                if(opt.length == 2) {
+                    setTimeout(cardsWrong, 500);
+                }  
+            }
         }
     }
 }
