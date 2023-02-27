@@ -5,13 +5,12 @@ let player = '';
 
 document.querySelector('.btn').addEventListener('click', startGame);
 function startGame(e) {
-    e.preventDefault();
     player = document.querySelector('.input').value;
-
-    document.querySelector('.center.start').style.display = 'none';
-    document.querySelector('.center.playing').style.display = 'block';
-
-    generateCards();
+    if(player.length >= 3) {
+        e.preventDefault();
+        document.querySelector('.btn').innerHTML = 'Iniciando...';
+        setTimeout(generateCards, 2000);
+    } 
 }
 
 function flip(e) {
@@ -33,6 +32,9 @@ function flip(e) {
     }
 }
 function generateCards() {
+    document.querySelector('.center.start').style.display = 'none';
+    document.querySelector('.center.playing').style.display = 'block';
+
     document.querySelector('.info-player span').innerHTML = player;
     startCron();
 
